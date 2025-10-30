@@ -17,7 +17,7 @@ body {
   border: 2px solid #ccc;
   border-radius: 20px;
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 2rem auto;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
@@ -113,12 +113,12 @@ h1{
   height: auto;
   overflow: hidden;
   display: flex;
-  justify-content: flex-end; /* Keeps image pushed to right */
-  align-items: center;       /* Vertically center */
+  justify-content: center;
+  align-items: center;   
 }
 
 .hero-image img {
-  width: 80%;
+  width: 70%;
   height: auto;
   display: block;
 }
@@ -127,27 +127,28 @@ h1{
 .dmc-con {
   position: absolute; /* Layer on top of hero image */
   z-index: 10;        /* Higher than hero image */
-  left: 18%;           /* Position on the left side */
-  top: 52%;           /* Vertical center */
+  left: 22%;           /* Position on the left side */
+  top: 45%;           /* Vertical center */
   transform: translateY(0); /* Perfect vertical centering */
   background-color: rgba(255, 255, 255, 0.8); /* Optional for readability */
   padding: 2rem 2rem;
   border-radius: 12px;
-  max-width: 300px;   /* Adjust width */
+  max-width: 200px;   /* Adjust width */
+
 }
 
 /* Paragraph styling inside DMC content */
 .dmc-con p {
   margin: 0 0 1rem 0;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: rgb(25, 168, 220);
-  line-height: 1.8;
+  line-height: 1.5;
   text-align: left; /* Ensures content is left-aligned */
 }
 
 /* Image inside DMC content */
 .dmc-con img {
-  width: 100%; /* Fit "Own Today" image inside the box */
+  width: 95%; /* Fit "Own Today" image inside the box */
   height: auto;
   display: block;
 }
@@ -198,20 +199,20 @@ h1{
 
 /* Each figure as a grid with image above caption */
 .fig-items div {
-	width: 120px;
-	height: 120px;
+	width: 150px;
+	height: 150px;
 	background-color: rgb(18, 165, 223);
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 5px;
+	box-sizing: border-box;
 }
 
 .upg-items {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 1rem; /* space between figures */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.5rem; /* space between grid items */
     justify-items: center; /* centers each figure inside its grid cell */
 }
 
