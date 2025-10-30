@@ -99,3 +99,55 @@ body {
   color: #ffcc00; /* gold/yellow accent on hover */
   transform: scale(1.05);
 }
+
+h1{
+  font-family: 'Poppins', sans-serif;
+  color: #111;
+  margin-bottom: 3em;
+}
+
+/* Hero image container - keep your current layout */
+.hero-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end; /* Keeps image pushed to right */
+  align-items: center;       /* Vertically center */
+}
+
+.hero-image img {
+  width: 80%;
+  height: auto;
+  display: block;
+}
+
+/* DMC content box */
+.dmc-con {
+  position: absolute; /* Layer on top of hero image */
+  z-index: 10;        /* Higher than hero image */
+  left: 18%;           /* Position on the left side */
+  top: 52%;           /* Vertical center */
+  transform: translateY(0); /* Perfect vertical centering */
+  background-color: rgba(255, 255, 255, 0.8); /* Optional for readability */
+  padding: 2rem 2rem;
+  border-radius: 12px;
+  max-width: 300px;   /* Adjust width */
+}
+
+/* Paragraph styling inside DMC content */
+.dmc-con p {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  color: rgb(25, 168, 220);
+  line-height: 1.8;
+  text-align: left; /* Ensures content is left-aligned */
+}
+
+/* Image inside DMC content */
+.dmc-con img {
+  width: 100%; /* Fit "Own Today" image inside the box */
+  height: auto;
+  display: block;
+}
