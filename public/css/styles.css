@@ -233,3 +233,226 @@ footer {
 	padding: 10px 0;
 	font-weight: 600;
 }
+
+
+
+
+
+/* ========================= */
+/* RESPONSIVE STYLES (KEEP LAYOUT SAME, JUST SCALE) */
+/* ========================= */
+
+@media (max-width: 1024px) {
+
+  /* Slightly adjust global font scaling */
+  body {
+    font-size: 0.95rem;
+  }
+
+  /* Keep nav horizontal but scale spacing */
+  .nav-bar {
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-links li a {
+    font-size: 0.95rem;
+  }
+
+  /* Hero image and DMC scale smoothly */
+  .hero-image img {
+    width: 80%;
+    height: auto;
+  }
+
+  .dmc-con {
+    left: 18%;
+    top: 45%;
+    padding: 1.5rem;
+    max-width: 180px;
+  }
+
+  .dmc-con p {
+    font-size: 1.5rem;
+  }
+
+  .dmc-con img {
+    width: 90%;
+  }
+
+  /* Keep 2x2 layout for upgrade items but allow scaling */
+  .upg-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .fig-items div {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Smaller screens (phones and small tablets) */
+@media (max-width: 768px) {
+
+  /* Body and wrapper fine-tuning */
+  body {
+    font-size: 0.9rem;
+    background-attachment: scroll; /* Prevents mobile jumpiness */
+  }
+
+  .content-wrapper {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  /* Keep navigation same, just smaller text */
+  #main-header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .siteName a {
+    font-size: 1.5rem;
+  }
+
+  #tools a {
+    font-size: 0.9rem;
+  }
+
+  .nav-links li a {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+  }
+
+  @media (max-width: 1024px) {
+  .hero-image {
+    flex-direction: grid;
+    gap: 1.5rem;
+  }
+
+  .hero-image img {
+    width: 65%;
+  }
+
+  .dmc-con {
+    max-width: 220px;
+    padding: 1.5rem;
+  }
+
+  .dmc-con p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    flex-direction: column;
+    align-items: left;
+    gap: 1rem;
+    left: 7%;
+  }
+
+  .hero-image img {
+    width: 90%;
+  }
+
+  .dmc-con {
+    width: 50%;
+    max-width: 140px;
+    text-align: left;
+    align-items: left;
+    left: 5%;
+    
+  }
+
+  .dmc-con p {
+    font-size: 0.25rem;
+    text-align:  left;
+  }
+
+  .dmc-con img {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image img {
+    width: 100%;
+  }
+
+  .dmc-con {
+    padding: 1rem;
+  }
+
+  .dmc-con p {
+    font-size: 1.1rem;
+  }
+
+  .dmc-con img {
+    width: 80%;
+  }
+}
+
+  #up-reviews .reviews {
+    order: 1; /* appear first (top) */
+    flex: 2 1 500px; /* wider */
+  }
+
+  #up-reviews .upgrades {
+    order: 2; /* appear second (below) */
+    flex: 1 1 400px; /* smaller */
+  }
+
+
+  /* Keep upgrades grid 2x2 but responsive */
+  .upg-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .fig-items div {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Footer tweaks */
+  footer {
+    text-align: left;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small screens (phones under 480px) */
+@media (max-width: 480px) {
+
+  .siteName a {
+    font-size: 1.3rem;
+  }
+
+  #tools a {
+    font-size: 0.85rem;
+  }
+
+  .nav-links li a {
+    font-size: 0.85rem;
+  }
+
+  .hero-image img {
+    width: 100%;
+  }
+
+  .dmc-con p {
+    font-size: 1.1rem;
+  }
+
+  .dmc-con img {
+    width: 80%;
+  }
+
+
+
+  .fig-items div {
+    width: 100px;
+    height: 100px;
+  }
+}
