@@ -1,6 +1,101 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+body {
+  /* Full-page background image */
+  background-image: url("/images/site/small_check.jpg"); /* change path as needed */
+  background-size: cover;            /* Make it cover the whole viewport */
+  background-repeat: no-repeat;
+  background-attachment: fixed;      /* Keep background still while scrolling */
+  background-position: center center;
+  
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+/* Content wrapper: white background, rounded corners, shadow */
+.content-wrapper {
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+/* Header and navigation inside content */
+.content-wrapper header,
+.content-wrapper nav {
+  margin-bottom: 2rem; /* spacing below header/nav */
+}
+
+/* Optional: Hero, reviews, and upgrades spacing */
+#hero-section,
+#up-reviews {
+  margin-bottom: 2rem;
+}
+
+/* ===== Header Styling ===== */
+#main-header {
+  display: flex;                 
+  justify-content: space-between;
+  align-items: center;           
+  padding: 1rem 2rem;            
+  background-color: #ffffff;     
+}
+
+/* Left side - site name */
+.siteName a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000; /* black text */
+}
+
+/* Right side - account link */
+#tools a {
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #000; /* black text */
+  transition: color 0.3s ease;
+}
+
+
+#tools a:hover {
+  color: #555; /* softer black on hover */
+  text-decoration: underline;
+}
+
+/* ===== Navigation Bar ===== */
+.nav-bar {
+  background-color: #000000; /* black background */
+  padding: 0.75rem 2rem;    /* spacing on left and right */
+}
+
+/* The list container */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly; /* equal space between links */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each navigation link */
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff; /* white text for contrast */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.6px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.nav-links li a:hover {
+  color: #ffcc00; /* gold/yellow accent on hover */
+  transform: scale(1.05);
 }
