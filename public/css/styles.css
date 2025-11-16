@@ -239,46 +239,68 @@ footer {
 /*========================= */
 Styling for the vehicle display page
 /*========================= */
+
 #inv-display {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 15px !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+
+/* adjust card width so column looks balanced */
+#inv-display li {
+  width: 320px !important;
+  margin: 0 !important;
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-
+  align-items: center;
+  overflow: hidden;
 }
 
-#inv-display h2 {
-  width: 200px;
-  height:auto;
-  margin: 10px 0;
-  border-radius: 5px;
-  margin-left: 17px;
-  border: 1px solid lightgrey;
-  box-shadow: 2px 1px 3px lightgrey;
-}
-
-.class-title {
-  margin-left: 17px;
-  color: #101820;
-  margin-top: 20px;
-  font-size: 1.5rem;
-}
-
-#inv-display li a img {
-  border-radius: 5px 5px 0 0;
+#inv-display li img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .namePrice {
-  padding: 8px;
-}
-
-.namePrice h2 a {
-  color: #023047;
-}
-
-.center-404 {
+  padding: 10px;
   text-align: center;
-  font-size: 1.5rem;
-  margin: 100px 0;
 }
+
+.namePrice h2 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.namePrice p {
+  margin: 0;
+  font-weight: 700;
+  color: #7B7D7D;
+  font-size: 16px;
+}
+
+.namePrice a {
+  text-decoration: none;
+  color: black;
+}
+
+.namePrice a:hover {
+  color: red;
+  font-weight: 700;
+}
+
+
+
 
 /* styling for vehicle details view  */
 .detail-header {
@@ -330,24 +352,6 @@ Styling for the vehicle display page
 }
 
 
-/* styling for vehicle management page */
-.mag-title {
-  font-size: 1.5rem;
-  margin-left: 20px;
-  padding: 20px 0;
-}
-
-.mag-link {
-  border-radius: 6px;
-  padding: 20px;
-  margin: 0 20px;
-  background-color: #101820;
-}
-
-.mag-link a {
-  color: white;
-  text-decoration: underline 1px;
-}
 
 
 /* ========================= */
@@ -355,22 +359,14 @@ Styling for the vehicle display page
 /* ========================= */
 
 @media (max-width: 1024px) {
-
-  /* Slightly adjust global font scaling */
   body {
     font-size: 0.95rem;
   }
 
-  /* Keep nav horizontal but scale spacing */
   .nav-bar {
     padding: 0.5rem 1rem;
   }
 
-  .nav-links li a {
-    font-size: 0.95rem;
-  }
-
-  /* Hero image and DMC scale smoothly */
   .hero-image img {
     width: 80%;
     height: auto;
@@ -405,8 +401,6 @@ Styling for the vehicle display page
 
 /* Smaller screens (phones and small tablets) */
 @media (max-width: 768px) {
-
-  /* Body and wrapper fine-tuning */
   body {
     font-size: 0.9rem;
     background-attachment: scroll; /* Prevents mobile jumpiness */
@@ -436,107 +430,31 @@ Styling for the vehicle display page
     padding: 0.3rem;
   }
 
-  @media (max-width: 1024px) {
-  .hero-image {
-    flex-direction: grid;
-    gap: 1.5rem;
-  }
-
-  .hero-image img {
-    width: 65%;
-  }
-
-  .dmc-con {
-    max-width: 220px;
-    padding: 1.5rem;
-  }
-
-  .dmc-con p {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
   .hero-image {
     flex-direction: column;
-    align-items: left;
     gap: 1rem;
-    left: 7%;
-  }
-
-  .hero-image img {
-    width: 90%;
   }
 
   .dmc-con {
     width: 50%;
     max-width: 140px;
-    text-align: left;
-    align-items: left;
     left: 5%;
-    
   }
-
-  .dmc-con p {
-    font-size: 0.25rem;
-    text-align:  left;
-  }
-
-  .dmc-con img {
-    width: 60%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-image img {
-    width: 100%;
-  }
-
-  .dmc-con {
-    padding: 1rem;
-  }
-
-  .dmc-con p {
-    font-size: 1.1rem;
-  }
-
-  .dmc-con img {
-    width: 80%;
-  }
-}
 
   #up-reviews .reviews {
-    order: 1; /* appear first (top) */
-    flex: 2 1 500px; /* wider */
+    order: 1;
   }
 
   #up-reviews .upgrades {
-    order: 2; /* appear second (below) */
-    flex: 1 1 400px; /* smaller */
+    order: 2;
   }
 
-
-  /* Keep upgrades grid 2x2 but responsive */
   .upg-items {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-  }
-
-  .fig-items div {
-    width: 120px;
-    height: 120px;
-  }
-
-  /* Footer tweaks */
-  footer {
-    text-align: left;
-    font-size: 0.9rem;
   }
 }
 
-/* Extra small screens (phones under 480px) */
 @media (max-width: 480px) {
-
   .siteName a {
     font-size: 1.3rem;
   }

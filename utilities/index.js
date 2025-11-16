@@ -1,5 +1,15 @@
-const invModel = require("../models/inventory-model")
+const invModel = require("../models/inventory-model");
 const Util = {}
+
+/* ************************
+ *  Error handling wrapper
+ ************************** */
+
+Util.handleErrors = function (fn) {
+  return function (req, res, next) {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
+};
 
 
 /* ************************
@@ -26,14 +36,12 @@ Util.getNav = async function (req, res, next) {
   return list
 }
 
-module.exports = Util
-
 
 /* **************************************
 * Build the classification view HTML
 * ************************************ */
 Util.buildClassificationGrid = async function(data){
-  let grid
+  let grid;
   if(data.length > 0){
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
@@ -61,3 +69,65 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+
+/* ************************
+ * Build vehicle detail view
+ ************************** */
+Util.buildVehicleDetail = async function (data) {
+    let vDescription = `
+
+  <div class="detailsView">
+
+    <div class="col1">
+      <img src="${data.inv_image}" alt="${data.inv_make} ${data.inv_model}">
+    </div>
+
+    <ul class="col2">
+      <li> <strong> ${data.inv_make} ${data.inv_model} Details </strong></li>
+
+      <li> <strong>Price:</strong> 
+          $${new Intl.NumberFormat("en-US").format(data.inv_price)}
+      </li>
+
+      <li> <strong>Description:</strong> ${data.inv_description}</li>
+      <li> <strong>Color:</strong> ${data.inv_color}</li>
+
+      <li> <strong>Miles:</strong>
+          ${new Intl.NumberFormat("en-US", {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 2,
+          }).format(data.inv_miles)}
+      </li>
+    </ul>
+
+  </div>
+  `;
+    return vDescription;
+};
+
+/* ************************
+ * Build select option for classification
+ ************************** */
+Util.buildClassificationList = async function (classification_id = null) {
+    let data = await invModel.getClassifications();
+
+    let classificationList =
+        '<select name="classification_id" id="classificationList" required>';
+    classificationList += "<option value=''>Choose a Classification</option>";
+
+    data.rows.forEach((row) => {
+        classificationList += '<option value="' + row.classification_id + '"';
+        if (
+            classification_id != null &&
+            row.classification_id == classification_id
+        ) {
+            classificationList += " selected ";
+        }
+        classificationList += ">" + row.classification_name + "</option>";
+    });
+    classificationList += "</select>";
+
+    return classificationList;
+};
+
+module.exports = Util;
