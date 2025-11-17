@@ -1,64 +1,67 @@
-body {
-  /* Full-page background image */
-  background-image: url("/images/site/small_check.jpg"); /* change path as needed */
-  background-size: cover;            /* Make it cover the whole viewport */
-  background-repeat: no-repeat;
-  background-attachment: fixed;      /* Keep background still while scrolling */
-  background-position: center center;
-  
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #222;
-}
-
-/* Content wrapper: white background, rounded corners, shadow */
-.content-wrapper {
-  background-color: #ffffff;
-  border: 2px solid #ccc;
-  border-radius: 20px;
-  padding: 2rem;
-  max-width: 1000px;
-  margin: 2rem auto;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+/******* Change Box Model ***************/
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 
-/* Header and navigation inside content */
-.content-wrapper header,
-.content-wrapper nav {
-  margin-bottom: 2rem; /* spacing below header/nav */
+:root {
+
+	--primary-color: #000000;
+	--secondar-color: #FFB703;
+	--accent-color1: #219EBC;
+	--accent-color2: #8ECAE6;
+	--accent-color3: #FB8500;
+	--rich-black: #101820;
+
+	font-family: 'Poppins', 'Raleway', sans-serif;
+	font-size: 16px;
+	color: var(--rich-black);
 }
 
-/* Optional: Hero, reviews, and upgrades spacing */
-#hero-section,
-#up-reviews {
-  margin-bottom: 2rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Raleway', 'Poppins', sans-serif;
 }
 
-/* ===== Header Styling ===== */
+a {
+	text-decoration: none;
+	font-family: 'Raleway', 'Poppins', sans-serif;
+}
+
+li {
+	list-style: none;
+}
+
+
+
+
+
 #main-header {
-  display: flex;                 
-  justify-content: space-between;
-  align-items: center;           
-  padding: 1rem 2rem;            
-  background-color: #ffffff;     
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 17px;
 }
 
-/* Left side - site name */
-.siteName a {
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: #000; /* black text */
+#main-header span a {
+	font-size: 30px;
+	font-weight: 700;
+	color: var(--rich-black);
 }
 
-/* Right side - account link */
+
 #tools a {
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
-  color: #000; /* black text */
-  transition: color 0.3s ease;
+	text-decoration: underline 1px var(--rich-black);
+	color: var(--rich-black);
+	text-transform: capitalize;
 }
 
 
@@ -67,153 +70,125 @@ body {
   text-decoration: underline;
 }
 
-/* ===== Navigation Bar ===== */
 nav {
-  background-color: #000000; /* black background */
-  padding: 0.75rem 2rem;    /* spacing on left and right */
+	margin: 8px 0;
 }
 
-/* The list container */
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-evenly; /* equal space between links */
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-/* Each navigation link */
 nav a {
-  text-decoration: none;
-  color: #ffffff; /* white text for contrast */
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.6px;
-  transition: color 0.3s ease, transform 0.2s ease;
+	color: white;
+	font-weight: 500;
 }
 
-/* Hover effect */
+nav ul {
+	display: flex;
+	justify-content: space-evenly;
+	background-color: var(--primary-color);
+	padding: 17px;
+	gap: 5px;
+	font-size: .9rem;
+}
+
+
+nav li:hover {
+	cursor: pointer;
+	text-decoration: underline 1px;
+}
+
 nav li a:hover {
   color: #ffcc00; /* gold/yellow accent on hover */
   transform: scale(1.05);
 }
 
-h1{
-  font-family: 'Poppins', sans-serif;
-  color: #111;
-  margin-bottom: 3em;
-}
-
-/* Hero image container - keep your current layout */
-.hero-image {
+#hero-section {
+	background: url('/images/vehicles/delorean.jpg') no-repeat center center;
+	background-size: contain;
+	width: auto;
+	height: 300px;
+	padding: 17px;
+	display: flex;
+	flex-direction: column;
   position: relative;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;   
 }
 
-.hero-image img {
-  width: 70%;
-  height: auto;
-  display: block;
+#hero-section h1 {
+	padding-bottom: 20px;
 }
 
-/* DMC content box */
-.dmc-con {
-  position: absolute; /* Layer on top of hero image */
-  z-index: 10;        /* Higher than hero image */
-  left: 22%;           /* Position on the left side */
-  top: 45%;           /* Vertical center */
-  transform: translateY(0); /* Perfect vertical centering */
-  background-color: rgba(255, 255, 255, 0.8); /* Optional for readability */
-  padding: 2rem 2rem;
-  border-radius: 12px;
-  max-width: 200px;   /* Adjust width */
+/* .notice {
+	color: var(--accent-color3);
+	padding: 20px;
+	font-weight: 600;
+} */
+
+#hero-section .dmc-con {
+	background-color: rgba(27, 172, 239, 0.3);
+	width: 200px;
+	padding: 10px;
+	line-height: 1.5;
+}
+
+.own {
+	width: 100px;
+	height: 60px;
+	padding-top: 8px;
 
 }
 
-/* Paragraph styling inside DMC content */
-.dmc-con p {
-  margin: 0 0 1rem 0;
-  font-size: 1.8rem;
-  color: rgb(25, 168, 220);
-  line-height: 1.5;
-  text-align: left; /* Ensures content is left-aligned */
+.own img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 
-/* Image inside DMC content */
-.dmc-con img {
-  width: 95%; /* Fit "Own Today" image inside the box */
-  height: auto;
-  display: block;
-}
+
+
 
 #up-reviews {
-  display: flex;           /* ensures children are side by side */
-  gap: 1rem;               /* space between sections */
-  align-items: flex-start; /* align top edges */
-  flex-wrap: wrap;         /* wrap on smaller screens */
+	padding: 17px;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
 }
 
-
-/* Assign order to swap sections */
-#up-reviews .upgrades {
-  order: 1; /* appear first (left) */
-  flex: 2 1 500px; /* wider */
+.reviews ul {
+	line-height: 2;
 }
 
-#up-reviews .reviews {
-  order: 2; /* appear second (right) */
-  flex: 1 1 400px; /* smaller */
+.reviews li {
+	list-style-type: disc;
+	list-style-position: inside;
 }
 
 .reviews h2 {
-  margin-bottom: 1rem;
-  font-family: 'Poppins', 'Raleway', sans-serif;
+	padding-bottom: 15px;
 }
 
-/* Remove default ul styles */
-.reviews ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* space between items */
+.reviews,
+.upgrades {
+	width: 100%;
 }
 
-/* Each review styled as a card */
-.reviews ul li {
-    padding: 1rem;
-    border-radius: 8px;
-    line-height: 1.6; /* spacing between lines */
-    word-wrap: break-word; /* wrap long text */
-    font-family: 'Poppins', 'Raleway', sans-serif;
-    color: rgb(0, 0, 0); /* make text readable on blue */
+.upgrades .upg-items {
+	display: grid;
+	grid: auto/1fr 1fr;
+	gap: 20px;
 }
 
-/* Each figure as a grid with image above caption */
+.upgrades h2 {
+	padding-bottom: 20px;
+}
+
+
+
 .fig-items div {
-	width: 150px;
-	height: 150px;
-	background-color: rgb(18, 165, 223);
+	width: 100%;
+	height: 120px;
+	background-color: var(--primary-color);
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	box-sizing: border-box;
-}
-
-.upg-items {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 0.5rem; /* space between grid items */
-    justify-items: center; /* centers each figure inside its grid cell */
+	border-radius: 5px;
 }
 
 figcaption {
@@ -228,77 +203,62 @@ figcaption a {
 
 }
 
+
 footer {
+	text-align: center;
 	margin-top: 20px;
-	padding: 10px 0;
+	padding: 30px 0;
 	font-weight: 600;
 }
 
 
 
-/*========================= */
-Styling for the vehicle display page
-/*========================= */
 
+
+
+
+/* Styling for the vehicle display */
 #inv-display {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 15px !important;
-  padding: 0 !important;
-  margin: 0 auto !important;
+	display: flex;
+	flex-direction: column;
 }
 
-/* adjust card width so column looks balanced */
 #inv-display li {
-  width: 320px !important;
-  margin: 0 !important;
-  background-color: white;
-  border: 1px solid lightgrey;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
+	width: 200px;
+	height: auto;
+	margin: 10px 0;
+	border-radius: 5px;
+	margin-left: 17px;
+	border: 1px solid lightgray;
+	box-shadow: 2px 1px 3px lightgrey;
 }
 
-#inv-display li img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+.class-title {
+	margin-left: 17px;
+	color: var(--rich-black);
+	margin-top: 20px;
+	font-size: 1.5rem;
 }
+
+
+#inv-display li a img {
+	border-radius: 5px 5px 0 0;
+}
+
 
 .namePrice {
-  padding: 10px;
-  text-align: center;
+	padding: 8px;
 }
 
-.namePrice h2 {
-  margin: 0 0 5px 0;
-  font-size: 18px;
-  font-weight: 700;
+.namePrice h2 a {
+	color: var(--primary-color);
 }
 
-.namePrice p {
-  margin: 0;
-  font-weight: 700;
-  color: #7B7D7D;
-  font-size: 16px;
+.center-404 {
+	text-align: center;
+	font-size: 1.5rem;
+	margin: 100px 0;
 }
-
-.namePrice a {
-  text-decoration: none;
-  color: black;
-}
-
-.namePrice a:hover {
-  color: red;
-  font-weight: 700;
-}
-
 
 
 
@@ -329,8 +289,116 @@ Styling for the vehicle display page
 }
 
 .col2 li:nth-of-type(even) {
-	background-color: #8eca8e;
+	background-color: var(--accent-color2);
 }
+
+
+/* Styling for login form  */
+.login-title,
+.register-title,
+.addclass-title,
+.inventory-title {
+	font-size: 1.2rem;
+	margin-left: 20px;
+	padding: 10px 0;
+}
+
+#login-form,
+#register-form,
+#addclass-form,
+#inventory-form {
+	border: 1px solid var(--primary-color);
+	border-radius: 6px;
+	padding: 20px;
+	margin: 0 20px;
+}
+
+#login-form form,
+#register-form form,
+#addclass-form form,
+#inventory-form form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+#login-form form input,
+#register-form input,
+#addclass-form input,
+#inventory-form input {
+	margin-bottom: 20px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid var(--primary-color);
+	font-family: 'Poppins', 'Raleway', sans-serif;
+}
+
+#login-form form label,
+#register-form label,
+#addclass-form label,
+#inventory-form label {
+	font-weight: 500;
+	display: flex;
+	flex-direction: column;
+
+}
+
+.no-account {
+	margin-top: 20px;
+	text-align: center;
+	margin-top: 30px;
+
+}
+
+.no-account a {
+	color: var(--primary-color);
+	text-decoration: underline 1px var(--primary-color);
+}
+
+#login-form form button,
+#register-form button,
+#addclass-form button,
+#inventory-form button {
+	padding: 10px 0;
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 120px;
+	margin: 0 auto;
+	font-family: 'Poppins', 'Raleway', sans-serif;
+}
+
+
+/* Styling for registeration form  */
+
+#register-form button {
+	margin-top: 20px;
+}
+
+
+.pass-req p {
+	font-style: italic;
+	font-size: .8rem;
+}
+
+.pass-req {
+	padding: 10px 0;
+}
+
+.success,
+.failed,
+.errors {
+	text-align: left;
+	/* padding-bottom: 10px; */
+	margin-bottom: 10px;
+	padding: 20px;
+	color: var(--accent-color3);
+	/* max-width: 450px; */
+	/* margin: 0 auto; */
+}
+
 
 /* Styling for vehicle management page  */
 .mag-title {
@@ -343,7 +411,7 @@ Styling for the vehicle display page
 	border-radius: 6px;
 	padding: 20px;
 	margin: 0 20px;
-	background-color: #023047;
+	background-color: var(--primary-color);
 }
 
 .mag-links a {
@@ -352,138 +420,270 @@ Styling for the vehicle display page
 }
 
 
-
-
-/* ========================= */
-/* RESPONSIVE STYLES (KEEP LAYOUT SAME, JUST SCALE) */
-/* ========================= */
-
-@media (max-width: 1024px) {
-  body {
-    font-size: 0.95rem;
-  }
-
-  .nav-bar {
-    padding: 0.5rem 1rem;
-  }
-
-  .hero-image img {
-    width: 80%;
-    height: auto;
-  }
-
-  .dmc-con {
-    left: 18%;
-    top: 45%;
-    padding: 1.5rem;
-    max-width: 180px;
-  }
-
-  .dmc-con p {
-    font-size: 1.5rem;
-  }
-
-  .dmc-con img {
-    width: 90%;
-  }
-
-  /* Keep 2x2 layout for upgrade items but allow scaling */
-  .upg-items {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
-  .fig-items div {
-    width: 140px;
-    height: 140px;
-  }
+/* Styling for select classification to see inventory */
+.mag-inv {
+	border-radius: 6px;
+	padding: 20px;
+	margin: 0 20px;
+	line-height: 1.5;
 }
 
-/* Smaller screens (phones and small tablets) */
-@media (max-width: 768px) {
-  body {
-    font-size: 0.9rem;
-    background-attachment: scroll; /* Prevents mobile jumpiness */
-  }
-
-  .content-wrapper {
-    padding: 1rem;
-    margin: 1rem;
-  }
-
-  /* Keep navigation same, just smaller text */
-  #main-header {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .siteName a {
-    font-size: 1.5rem;
-  }
-
-  #tools a {
-    font-size: 0.9rem;
-  }
-
-  .nav-links li a {
-    font-size: 0.9rem;
-    padding: 0.3rem;
-  }
-
-  .hero-image {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .dmc-con {
-    width: 50%;
-    max-width: 140px;
-    left: 5%;
-  }
-
-  #up-reviews .reviews {
-    order: 1;
-  }
-
-  #up-reviews .upgrades {
-    order: 2;
-  }
-
-  .upg-items {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* Styling for add classification form  */
+#addclass-form {
+	line-height: 2;
 }
 
-@media (max-width: 480px) {
-  .siteName a {
-    font-size: 1.3rem;
-  }
-
-  #tools a {
-    font-size: 0.85rem;
-  }
-
-  .nav-links li a {
-    font-size: 0.85rem;
-  }
-
-  .hero-image img {
-    width: 100%;
-  }
-
-  .dmc-con p {
-    font-size: 1.1rem;
-  }
-
-  .dmc-con img {
-    width: 80%;
-  }
-
-
-
-  .fig-items div {
-    width: 100px;
-    height: 100px;
-  }
+#addclass-form button {
+	width: 170px;
+	padding: 15px 0;
+	margin-left: 0;
 }
 
+/* Styling for add inventory/add vehicle form  */
+#inventory-form textarea {
+	height: 200px;
+	margin-bottom: 20px;
+	resize: vertical;
+	padding: 10px;
+	font-family: 'Poppins', 'Raleway', sans-serif;
+	border-radius: 6px;
+}
+
+#inventory-form i {
+	line-height: 3;
+}
+
+#classificationList {
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: 1px solid var(--primary-color);
+	font-family: 'Poppins', 'Raleway', sans-serif;
+}
+
+/* Account management styling */
+.accountMg {
+	padding: 20px;
+	line-height: 2;
+}
+
+.accountMg h2 {
+	font-size: 1.2rem;
+	text-transform: capitalize;
+}
+
+/* Update account styling */
+.account-update-form,
+.account-password-form
+{
+	padding: 20px;
+}
+
+.account-update-form input,
+.account-password-form input
+{
+	padding: 10px;
+	border-radius: 5px;
+	display: block;
+	margin-bottom: 10px;
+	font-family: 'Poppins', 'Raleway', sans-serif;
+	width: 50%;
+}
+
+.account-update-form fieldset,
+.account-password-form fieldset  
+{
+	border: none;
+}
+
+.account-update-form button,
+.account-password-form button 
+{
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: var(--primary-color);
+	color: white;
+	font-family: 'Poppins', 'Raleway', sans-serif;
+	cursor: pointer;
+}
+
+.account-password-form p {
+	margin-bottom: 20px;
+}
+
+/* "Add to cart" styling  */
+.form-button {
+	padding: 10px;
+	border-radius: 5px;
+	background-color: var(--primary-color);
+	color: white;
+	font-family: 'Poppins', 'Raleway', sans-serif;
+	cursor: pointer;
+	margin: 10px;
+}
+
+/* Styling for the Cart  */
+.cart-actions {
+	display: grid;
+	gap: 20px;
+} 
+
+.cart-container {
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 1rem;
+	background-color: var(--white);
+	/* border-radius: var(--border-radius); */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-table {
+	overflow-x: auto;
+}
+
+.cart-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+}
+
+.cart-table th,
+.cart-table td {
+	padding: 0.8rem;
+	text-align: left;
+	border-bottom: 1px solid var(--gray-light);
+}
+
+
+/* Styling for Checkout */
+.checkout-form {
+	margin-top: 1.5rem;
+}
+
+.checkout-container {
+	max-width: 600px;
+	margin: 2rem auto;
+	padding: 1rem;
+	background-color: var(--white);
+	border-radius: var(--border-radius);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-summary .cart-table {
+	margin-bottom: 2rem;
+}
+
+.checkout-form .form-group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+} 
+
+.checkout-form .form-group input {
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.checkout-form .form-group label {
+	font-weight: 600;
+	margin-bottom: .5rem;
+}
+
+/* Order success style  */
+.order-success-container {
+	max-width: 600px;
+	margin: 2rem auto;
+	padding: 1rem;
+	text-align: center;
+	background-color: var(--white);
+	border-radius: var(--border-radius);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 1200px) {
+
+	body {
+		background: url('/images/site/small_check.jpg') no-repeat center center;
+		background-size: cover;
+		padding: 20px 0
+	}
+
+	#wrapper {
+		margin: 0 auto;
+		max-width: 1000px;
+		background-color: white;
+		border: 6px solid var(--primary-color);
+		border-radius: 5px;
+	}
+
+	#up-reviews {
+		flex-direction: row-reverse;
+		justify-content: center;
+	}
+
+	#hero-section .dmc-con {
+		margin-left: 70px;
+	}
+
+  #hero-section .dmc-con {
+	background-color: rgba(27, 172, 239, 0.3);
+	width: 160px;
+	padding: 10px;
+	line-height: 2.0;
+  font-size: 1rem;
+  
+}
+
+	#hero-section {
+		height: 350px;
+		margin: 30px 0;
+	}
+
+
+	#inv-display {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 20px;
+		margin: 0 auto;
+		max-width: 800px;
+	}
+
+	#inv-display li {
+		margin-left: 0;
+	}
+
+	.detailsView {
+		flex-direction: row;
+		max-width: 800px;
+		margin: 0 auto;
+		justify-content: center;
+	}
+
+	#login-form,
+	#register-form,
+	#addclass-form,
+	#inventory-form {
+		max-width: 450px;
+		margin: 0 auto;
+	}
+
+	#inventory-form,
+	.notice {
+		max-width: 600px;
+
+	}
+
+	.login-title,
+	.register-title,
+	.addclass-title,
+	.inventory-title {
+		text-align: center;
+	}
+
+	.notice {
+		padding: 15px 0;
+		text-align: left;
+		margin: 0 auto;
+	}
+
+}
