@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 
 // Make nav available in all views
 app.use((req, res, next) => {
-  res.locals.nav = '<ul><li><a href="/">Home</a></li><li><a href="/account/login">Login</a></li></ul>';
+  res.locals.nav = '<ul><li><a href="/">Home</a></li><li><a href="/account/login/Register">Login/Register</a></li></ul>';
   next();
 });
 
