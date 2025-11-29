@@ -135,4 +135,96 @@ Util.buildClassificationList = async function (classification_id = null) {
   return classificationList;
 };
 
+/* ****************************************
+ * Middleware to check token validity
+ **************************************** */
+Util.checkJWTToken = (req, res, next) => {
+    if (req.cookies.jwt) {
+        jwt.verify(
+            req.cookies.jwt,
+            process.env.ACCESS_TOKEN_SECRET,
+            function (err, accountData) {
+                if (err) {
+                    req.flash("Please log in");
+                    res.clearCookie("jwt");
+                    return res.redirect("/account/login");
+                }
+                res.locals.accountData = accountData;
+                res.locals.loggedin = 1;
+                next();
+            }
+        );
+    } else {
+        next();
+    }
+};
+
+/* ****************************************
+ *  Check Login
+ * ************************************ */
+Util.checkLogin = (req, res, next) => {
+	if (res.locals.loggedin) {
+		next()
+	} else {
+		req.flash("notice", "Please log in.")
+		return res.redirect("/account/login")
+	}
+};
+
+Util.setCartCount = async (req, res, next) => {
+    if (
+        res.locals.loggedin &&
+        res.locals.accountData.account_type === "Client"
+    ) {
+        try {
+            const count = await cartModel.getCartCount(
+                res.locals.accountData.account_id
+            );
+            res.locals.cartCount = count;
+        } catch (err) {
+            console.error("Error setting cart count:", err);
+            res.locals.cartCount = 0;
+        }
+    } else {
+        res.locals.cartCount = 0;
+    }
+    next();
+};
+
+
+Util.checkAdminEmployee = (req, res, next) => {
+    if (res.locals.loggedin) {
+        const account_type = res.locals.accountData.account_type;
+        if (account_type === "Admin" || account_type === "Employee") {
+            next();
+        } else {
+            req.flash("notice", "Please log in with employee credentials.");
+            return res.redirect("/account/login");
+        }
+    } else {
+        req.flash("notice", "Please log in.");
+        return res.redirect("/account/login");
+    }
+};
+
+
+Util.formatPrice = function (amount) {
+    return (
+        "$" +
+        Number(amount).toLocaleString("en-US", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2,
+        })
+    );
+};
+
+/* ****************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for
+ * General Error Handling
+ **************************************** */
+Util.handleErrors = (fn) => (req, res, next) =>
+    Promise.resolve(fn(req, res, next)).catch(next);
+
+
 module.exports = Util;

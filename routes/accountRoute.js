@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const accountController = require("../controllers/accountController");
+const regValidate = require('../utilities/account-validation')
+
 
 // Login & registration views
 router.get("/login", accountController.buildLogin);
@@ -15,6 +17,8 @@ router.get("/", accountController.accountManagement);
 router.get("/update/:account_id", accountController.buildAccountUpdate);
 router.post("/update", accountController.updateAccount);
 router.post("/update-password", accountController.updatePassword);
+
+
 
 // Login page route
 router.get('/login', (req, res) => {

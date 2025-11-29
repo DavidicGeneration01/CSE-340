@@ -1,6 +1,5 @@
-
-const utilities = require(".");
 const { body, validationResult } = require('express-validator');
+const utilities = require(".");
 const validate = {};
 
 /*  **********************************
@@ -11,8 +10,9 @@ validate.classificationRules = () => {
         body("classification_name")
         .trim()
         .isLength({ min: 1 })
+        .withMessage('Classification name is required')
         .isAlpha()
-        .withMessage('First letters capitalize and no spaces')
+        .withMessage('Classification name must contain only letters')
     ];
 };
 
@@ -70,6 +70,41 @@ validate.inventoryRules = () => {
         .isLength({ min:1 })
         .withMessage('Please provide a vehicle color')
     ];
+};
+
+/* **********************************
+ *  Middleware to check validation results
+ * ********************************* */
+validate.checkInventoryData = (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        const nav = utilities.getNav(); // get navigation
+        const classificationList = utilities.buildClassificationList();
+        return res.status(400).render("inventory/add-inventory", {
+            title: "Add Inventory",
+            nav,
+            classificationList,
+            errors: errors.array(),
+            ...req.body
+        });
+    }
+    next();
+};
+
+validate.checkUpdateData = (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        const nav = utilities.getNav();
+        const classificationList = utilities.buildClassificationList(req.body.classification_id);
+        return res.status(400).render("inventory/edit-inventory", {
+            title: `Edit ${req.body.inv_make} ${req.body.inv_model}`,
+            nav,
+            classificationList,
+            errors: errors.array(),
+            ...req.body
+        });
+    }
+    next();
 };
 
 module.exports = validate;
