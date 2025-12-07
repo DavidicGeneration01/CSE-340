@@ -1,0 +1,41 @@
+# add .env to .gitignore (edit file manually or run:)
+" .env" | Out-File -FilePath .gitignore -Encoding utf8 -Append
+
+# Remove .env from Git tracking but keep the file locally
+git rm --cached .env
+git commit -m "Remove .env from repository and add to .gitignore"
+
+# Push the commit
+git push
+
+# Example (do NOT run until you understand history rewrite):
+bfg --delete-files .env
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+git push --force
+
+# Each item listed in this file will be ignored by git
+# and will not be uploaded to github. The blank lines
+# and comments are unnecessary, but included for 
+# clarification.
+
+# node_modules is a storage folder for Node and
+# can get very large.
+node_modules
+
+# .env file is for local use only. It contains
+# values not to be shared and most of the values
+# will be manually created by you or dynamically # created on the hosting server
+.env
+
+# .DS_Store is only for Mac users
+**/.DS_Store
+
+# testing out git ignore with the README.md file
+# README.md
+
+# ignore node_modules | Only for local use.
+node_modules
+
+# ignore pnpm-lock.yaml | Only for local use.
+pnpm-lock.yaml
